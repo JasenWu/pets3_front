@@ -1,0 +1,27 @@
+{
+  "name": "webpackjquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./build/webpack.config.js",
+    "dev": "webpack-dev-server --open --config ./build/webpack.config.dev.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "css-loader": "^0.28.11",
+    "less-loader": "^4.1.0",
+    "path": "^0.12.7",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^3.1.3"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "less": "^3.0.2"
+  }
+}
