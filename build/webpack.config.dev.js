@@ -6,7 +6,7 @@ let config = {
   
     output: require('./config/output.config.js'),
   
-    module: require('./config/module.config.js'),
+    module: require('./config/module.dev.config.js'),
   
     //resolve: require('./config/resolve.config.js'),
   

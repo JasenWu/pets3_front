@@ -7,11 +7,11 @@ let config = {
     output: require('./config/output.config.js'),
   
     
-    module: require('./config/module.config.js'),
+    module: require('./config/module.pro.config.js'),
   
     //resolve: require('./config/resolve.config.js'),
   
-    plugins: require('./config/plugins.dev.config.js'),
+    plugins: require('./config/plugins.pro.config.js'),
   
     //eslint: require('./config/vendor/eslint.config.js'),
   

@@ -6,6 +6,7 @@ new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
     noInfo: true,
+    inline:true,
     historyApiFallback: true,
     overlay: {
         warnings: true,
@@ -14,5 +15,5 @@ new WebpackDevServer(webpack(config), {
     open: true,
 }).listen(8080, '0.0.0.0', function (err, res) {
     if (err) console.log(err);
-    console.log('At 8080');
+    console.log('locahost At 8080');
 });
