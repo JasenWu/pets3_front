@@ -1,24 +1,21 @@
-var webpack = require('webpack');
-var path = require('path');
-let rules = require('./rules');
- 
-module.exports = {
+
+let config = {
     mode: 'development',
-    entry: './src/main.js',
-    output: {
-        path: path.resolve(__dirname, '../dist'),//打包后的目录
-        chunkFilename: 'chunk[id].tjs?v=[hash]',
-        publicPath: '/dist/',//资源文件的引用路径
-        filename: '[name].js'
-    },
-    module: {
-        rules: rules
-    },
-    resolve: {
+    
+    entry: require('./config/entry.config.js'),
+  
+    output: require('./config/output.config.js'),
+  
+    module: require('./config/module.config.js'),
+  
+    //resolve: require('./config/resolve.config.js'),
+  
+    plugins: require('./config/plugins.dev.config.js'),
+  
+    //eslint: require('./config/vendor/eslint.config.js'),
+  
+    //postcss: require('./config/vendor/postcss.config.js'),
+  };
 
-    },
-    plugins: [
 
-
-    ]
-};
+module.exports = config;
