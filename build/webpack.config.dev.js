@@ -2,15 +2,20 @@
 let config = {
     mode: 'development',// "production" | "development" | "none"   Chosen mode tells webpack to use its built-in optimizations accordingly.
     
-    entry: require('./config/entry.config.js'),
+    entry: require('./config/base/entry.config.js'),
   
-    output: require('./config/output.config.js'),
+    output: require('./config/base/output.config.js'),
   
-    module: require('./config/module.dev.config.js'),
+    module: require('./config/dev/module.dev.config.js'),
   
     //resolve: require('./config/resolve.config.js'),
   
-    plugins: require('./config/plugins.dev.config.js'),
+    plugins: require('./config/dev/plugins.dev.config.js'),
+
+    devServer: {
+           contentBase: '../dist',
+           open:true, 
+    },
   
     //eslint: require('./config/vendor/eslint.config.js'),
   

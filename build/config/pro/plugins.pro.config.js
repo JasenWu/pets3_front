@@ -6,7 +6,7 @@ let path = require('path');
 
 module.exports = [
     new CleanWebpackPlugin(['dist'], {
-        root: path.resolve(__dirname, '../../'),
+        root: path.resolve(__dirname, '../../../'),
         verbose: true,
         dry: false
       }),
