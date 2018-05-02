@@ -1,1 +1,1 @@
-export let x = 888;
+export let x = 888

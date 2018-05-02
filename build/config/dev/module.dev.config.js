@@ -3,6 +3,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     rules: [{
+        test: /\.(js | vue |jsx)$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/,
+        enforce:'pre'
+    },{
         test: /(\.js)$/,
         use: {
             loader: "babel-loader",
