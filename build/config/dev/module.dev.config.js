@@ -1,6 +1,6 @@
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     rules: [{
         test: /\.(js | vue |jsx)$/,
@@ -29,5 +29,15 @@ module.exports = {
             "css-loader",
             "less-loader",
         ] 
-    },],
+    },{
+        test: /\.(png|jpeg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },],
 }
