@@ -1,26 +1,24 @@
 
 require('./style/index.less');
-require('./style/style.css');
+ 
 import { x } from './test';
  
-let submitFile = false;//是否提交过资料
+let submitFile = true;//是否提交过资料
 let formPage = $('#form-page');
 let successPage = $("#success-page");
 
-$(document).ready(function () {
-    //$('body').html('<p class="p">testddsfdsfsdf</p>')
+//初始化页面
+function initPage(){
     if(submitFile){
         successPage.show();
+        formPage.hide();
     }else{
         successPage.hide();
+        formPage.show();
     }
-    $("p").click(function () {
-        alert(x);
-        $(this).hide();
-        setTimeout(() => {
-            $(this).show();
-        }, 2000)
+}
 
-        
-    });
+$(document).ready(function () {
+    initPage();//初始化页面
+    
 });
