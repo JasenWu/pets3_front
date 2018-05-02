@@ -1,4 +1,4 @@
-var $ = require("jquery");
+
 require('./style/index.less');
 require('./style/style.css');
 import { x } from './test';
