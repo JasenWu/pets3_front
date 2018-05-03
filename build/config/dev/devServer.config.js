@@ -4,4 +4,5 @@ let path = require('path');
 module.exports = {
     contentBase: path.resolve(__dirname,'../../../dist'),
     open: true,
+    host:'0.0.0.0'
   }

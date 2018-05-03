@@ -1,5 +1,5 @@
 
-import { uploadFile, ajaxSubmit, modalData } from './model'
+import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
 require('./style/index.less')
 const $ = window.$
 const formPage = $('#form-page')// 表单提交页面
@@ -33,23 +33,35 @@ function getValue () {
 }
 
 // 显示弹窗
-function showDailog (type) {
-  if (type === 'success') {
-    modalIcon.attr('src', modalData.success.icon)
-    modalMsg.text(modalData.success.msg)
+function showDailog (type, msg) {
+  function show (icon = modalData.success.icon, text = modalData.success.msg) { // 显示弹窗
+    modalIcon.attr('src', icon)
+    modalMsg.text(text)
     modal.show()
     let t = setTimeout(() => {
       modal.hide()
       clearTimeout(t)
     }, defer)
-  } else {
-    modalIcon.attr('src', modalData.failure.icon)
-    modalMsg.text(modalData.failure.msg)
-    modal.show()
-    let t = setTimeout(() => {
-      modal.hide()
-      clearTimeout(t)
-    }, defer)
+  }
+  switch (type) {
+    case 'success':
+      show(modalData.success.icon, modalData.success.msg)
+      break
+    case 'failure':
+      show(modalData.failure.icon, modalData.failure.msg)
+
+      break
+
+    case 'notPdf':
+
+      show(modalData.notPdf.icon, modalData.notPdf.msg)
+      break
+    case 'toBig':
+      show(modalData.toBig.icon, modalData.toBig.msg)
+      break
+    case 'commmon':
+      show(modalData.toBig.icon, msg)
+      break
   }
 }
 // 解析文件并上传
@@ -64,7 +76,18 @@ function handleUpload (obj) {
     let dotIndex = fileName.lastIndexOf('.')
     let extName = fileName.substr(dotIndex + 1).toLowerCase()
     let fileBaseName = fileName.substr(0, dotIndex)
-    console.log('extName', extName)
+    let size = obj.size
+
+    console.log('size', size)
+    if (extName !== 'pdf') { // 不是要求的格式文件
+      showDailog('notPdf')
+      return
+    }
+    if (size > fileMaxSize) {
+      showDailog('toBig')
+      return
+    }
+
     let sk = 'base64,'
     let result = reader.result
       .substr(reader.result.indexOf(sk) + sk.length)
@@ -85,7 +108,7 @@ function handleUpload (obj) {
         let html = `<span>${fileName}</span>`
         selectedFile.html(html)
 
-        showDailog('failure')
+        showDailog('success')
       }
     }, function () {
       showDailog('failure')
@@ -142,12 +165,17 @@ $.validator.setDefaults({
 
     }
     ajaxSubmit(params, function (res) {
-      let { retCode, retData, retMsg } = res
-      console.log('retCode', retCode, retMsg, retData)
+      let { retCode, retMsg } = res
+
       if (retCode === 0) { // 成功
         initPage(true)// 初始化页面
       } else { // 失败
+        console.log(retMsg)
+        showDailog('commmon', retMsg)
       }
+    }, function (res) {
+      let { retMsg } = res
+      showDailog(modalData.commonError.icon, retMsg)
     })
   }
 })
@@ -159,8 +187,29 @@ $.validator.addMethod('isMobile', function (value, element) {
   return this.optional(element) || (length === 11 && mobile.test(value))
 }, '请正确填写您的手机号码')
 
+function updateBrowser () {
+  $('#browser').show()
+}
+
+// 浏览器支持
+function browserSupport () {
+  let { browser, version } = getBrowserInfo()
+  let support = false
+  if (browser === 'IE' && version < 10) {
+    updateBrowser()// 升级浏览器
+  } else {
+    support = true
+  }
+  return support
+}
+
 // 页面入口
 $(document).ready(function () {
+  console.log('getBrowserInfo', getBrowserInfo())
+  let support = browserSupport()// 浏览器支持
+  if (support === false) { // 不支持直接返回
+    return
+  }
   initPage(false)// 初始化页面
 
   $('#form').validate({

@@ -6,29 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我要创业</title>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+     
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 
 </head>
 
 <body>
+    <div id="browser" class="browser">
+        我们不支持您所用的浏览器,请升级&nbsp;<a href="http://rj.baidu.com/soft/detail/41266.html">马上下载</a>
+    </div>
     <!-- 表单页面 -->
-    <div id="form-page">
-        <div class="form-main">
-            <div class="items-wrap">
-
-                <div class="logo-wrap">
-                    <img src="./img/logo.png" />
-                </div>
-                <h5 class="form-title">
-                    请填写以下资料供初审
-                </h5>
-                <section class="blue-ling-wrap">
-                    <img src="./img/blue-ling.png" />
-                </section>
+        <div id="form-page">
+            <div class="form-main">
                 <form id="form" method="get" action="">
-                   
+                    <div class="items-wrap">
+
+                        <div class="logo-wrap">
+                            <img src="./img/logo.png" />
+                        </div>
+                        <h5 class="form-title">
+                            请填写以下资料供初审
+                        </h5>
+                        <section class="blue-ling-wrap">
+                            <img src="./img/blue-ling.png" />
+                        </section>
+
+
                         <div class="form-item">
                             <p class="title">1、姓名
                                 <span class="star">*</span>
@@ -42,15 +48,15 @@
                                 <span class="star">*</span>
                             </p>
 
-                            <input class="form-input"   id="email" name="email" placeholder="请输入" type="email"  required />
-                      
+                            <input class="form-input" id="email" name="email" placeholder="请输入" type="email" required />
+
                         </div>
                         <div class="form-item">
                             <p class="title">3、手机
                                 <span class="star">*</span>
                             </p>
 
-                            <input class="form-input"   id="phone" name="phone" placeholder="请输入"  type="text" minlength isMobile required />
+                            <input class="form-input" id="phone" name="phone" placeholder="请输入" type="text" minlength isMobile required />
 
                         </div>
                         <div class="form-item">
@@ -136,17 +142,20 @@
 
                         </div>
                         <p class="intro">上传一份简历，简单介绍一下自己、团队、或者商业想法等</p>
- 
-                        <section class="submit-area">
-                            <input type="submit" value="提交" class="submit-form">
-                        </section>
 
-                  
- 
+
+
+
+
+
+
+                    </div>
+                    <section class="submit-area">
+                        <input type="submit" value="提交" class="submit-form">
+                    </section>
                 </form>
 
             </div>
-
         </div>
 
         <!-- 成功页面 -->
