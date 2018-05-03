@@ -28,7 +28,7 @@
 
  //表单页
 #form-page{
-    background:url('../img/main-bg.jpg') no-repeat center top;
+    background:#eee url('../img/main-bg.jpg') no-repeat center top;
     min-height: 100%;
     padding-top: 170px;
     padding-bottom: 170px;
@@ -196,16 +196,15 @@
 //提交成功页面
 #success-page{
     background:url('../img/main-bg.jpg') no-repeat center top;
-    min-height: 100%;
-    
     padding-top: 170px;
     padding-bottom: 10px;
     display: none;
+    box-sizing: border-box;
     .content-main{
         width: 1046px;
         margin: 0 auto;
         background: #fff;
-        height: 100%;
+        
         position: relative;
         text-align: center;
         padding-top: 150px;
@@ -225,4 +224,51 @@
     }
     
 
+}
+
+// 弹窗
+.modal-bg{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+}
+.modal-main{
+    position: fixed;
+    left:50%;
+    top:50%;
+    z-index: 2;
+    display: none;
+
+    @width:538px;//弹窗内容宽度
+    @height:126px;//弹窗内容高度
+    .modal-content{
+        width: @width;
+        height: @height;
+        margin-left: -@width / 2;
+        margin-top: -@height / 2;
+        background: white;
+        box-shadow: 1px 1px 5px #eee;
+        text-align: center;
+         
+        font-size: 24px;
+        box-sizing: border-box;
+        padding-top: 50px;
+        .content{
+            padding-left: 160px;
+
+            img{
+                float: left;
+            }
+            span{
+                padding-left: 10px;
+                float: left;
+                line-height: 37px;
+            }
+        }
+    }
 }

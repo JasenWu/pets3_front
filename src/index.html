@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- 表单页面 -->
     <div id="form-page">
         <div class="form-main">
                 <div class="items-wrap">
@@ -87,7 +88,7 @@
                                     <input  class="form-input" id="school" name="school" type="text" placeholder="请输入" />
                 
                                 </div>
-                                <div class="form-item" id="test">
+                                <div class="form-item" >
                                     <p class="title">7、请问你是否有过创业经历
                                         <span class="star">*</span>
                                     </p>
@@ -124,7 +125,7 @@
                                         </div>
                                         <div class="remind">不超过10M，支持扩展名：pdf</div>
                                         <div class="select-files">
-                                            <span>11.pdf</span>
+                                            <span id="selectedFile"></span>
                                         </div>
                                         <input class="form-upload-input" id="startUploadInput" type="file" placeholder="请输入" />
                 
@@ -149,6 +150,8 @@
         </div>
 
     </div>
+
+    <!-- 成功页面 -->
     <div id="success-page">
 
         <div class="content-main">
@@ -158,6 +161,21 @@
                 <img class="big-img" src='./img/big-img.png' />
         </div>
  
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal-bg"></div>
+    <div class="modal-main" id="modal">
+        <div class="modal-content">
+            <div class="content">
+                    <img id="modalIcon" src='' />
+                    <span id="modalMsg">
+                            
+                    </span>
+            </div>
+                
+                
+        </div>
     </div>
 
 </body>
