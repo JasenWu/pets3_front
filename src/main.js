@@ -1,13 +1,9 @@
 
 require('./style/index.less');
-
 import { host, attachment, getValue, uploadFile, handleUpload } from './model';
-
 
 const formPage = $('#form-page');//表单提交页面
 const successPage = $("#success-page");//文件上传成功页面
-
-
 
 //初始化页面
 function initPage(submitFile) {
@@ -18,8 +14,8 @@ function initPage(submitFile) {
         successPage.hide();
         formPage.show();
     }
-}
  
+}
  
 $.validator.setDefaults({
     submitHandler: function (form) {
@@ -44,7 +40,6 @@ $.validator.setDefaults({
             } else {//失败
 
             }
-
         });
     }
 });
