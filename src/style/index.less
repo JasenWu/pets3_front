@@ -125,6 +125,7 @@
                     }
                     .upload-file{
                         display: flex;
+                        flex-wrap:wrap;
                         .upload-component{
                             width: 210px;
                             height: 80px;
@@ -135,13 +136,20 @@
                             color:#909399;
                             font-size: 24px;
                             font-weight: lighter;
-                            img{
-                               
-                            }
+                            cursor: pointer;
+                          
                             
+                        }
+                        //选择的上传文件
+                        .select-files{
+                            display: block;
+                            width: 100%;
+                            padding: 5px;
+                            color:red;
                         }
                         .form-upload-input{
                             display: none;
+
                         }
                         .remind{
                             color:#C0C4CC;

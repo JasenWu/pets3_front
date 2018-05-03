@@ -1,92 +1,70 @@
 
 require('./style/index.less');
- 
-import { x } from './test';
- 
-let submitFile = false;//是否提交过资料
-let formPage = $('#form-page');
-let successPage = $("#success-page");
-const host = 'http://192.168.87.201:8089/';//通过官网提交的项目申请
-const api = host + 'project/project/website-submit-apply';//通过官网提交的项目申请
+
+import { host, attachment, getValue, uploadFile, handleUpload } from './model';
+
+
+const formPage = $('#form-page');//表单提交页面
+const successPage = $("#success-page");//文件上传成功页面
+
+
 
 //初始化页面
-function initPage(){
-    if(submitFile){
+function initPage(submitFile) {
+    if (submitFile) {
         successPage.show();
         formPage.hide();
-    }else{
+    } else {
         successPage.hide();
         formPage.show();
     }
 }
-//获取radio 的值
-function getValue(){  
-    // method 1   
-    var radio = document.getElementsByName("businessExperienceFlag");
-    let result = 1;  
-    for (let i=0; i<radio.length; i++) {  
-        if (radio[i].checked) {  
-            
-            result = radio[i].value;
-        }  
-    } 
-    return result; 
-}  
-
-//登录
-function login(params = {userName:"lujiansheng",password:"Innotech2017"}){
-    $.ajax({
-        type: "POST",
-        url: host + "login/login",
-        data: params,
-        success: function(res){
-            console.log("res",res);
-        },
-        
-      });
-}
-
-//异步提交
-function ajaxSubmit(params){
-    $.ajax({
-        type: "POST",
-        url: api,
-        data: params,
-        success: function(res){
-            console.log("res",res);
-        },
-        
-      });
-}
-
-$.validator.setDefaults({
-    submitHandler: function(form) {
-      //alert("提交事件!");
-       
-      let params = {
-        realName:$("#name").val(),
-        mobile:$("#phone").val(),
-        weChat:$("#weixin").val(),
-        email:$("#email").val(),
-        businessExperienceFlag: getValue(),
-        education:$("#education").val(),
-        educationSchool:$("#school").val(),
-        description:"",
-        fileId:22
  
-      }
-      console.log("params",params);
-      
-       
-      ajaxSubmit(params);
+ 
+$.validator.setDefaults({
+    submitHandler: function (form) {
+        //alert("提交事件!");
+        let params = {
+            realName: $("#name").val(),
+            mobile: $("#phone").val(),
+            weChat: $("#weixin").val(),
+            email: $("#email").val(),
+            businessExperienceFlag: getValue(),
+            education: 1,
+            educationSchool: $("#school").val(),
+            description: "",
+            fileId: 22
+
+        }
+        ajaxSubmit(params, function (res) {
+            let { retCode, retData, retMsg } = res;
+            console.log("retCode", retCode, retMsg, retData);
+            if (retCode === 0) {//成功
+                initPage(true);//初始化页面
+            } else {//失败
+
+            }
+
+        });
     }
 });
+
 $(document).ready(function () {
-    initPage();//初始化页面
+    initPage(false);//初始化页面
     $("#form").validate();
-    login();
-    $("#test").on("click",function(){
+
+    $("#test").on("click", function () {
         getValue();
     })
-    
+
+    const startUpload = $("#startUpload");//上传组件
+    const startUploadInput = $("#startUploadInput");//上传的input type="file"控件
+    startUpload.on("click", function () {
+        startUploadInput.click();
+    })
+    startUploadInput.on("change", function () {
+        console.log("$(this)",$(this));
+        let file = $(this)[0].files[0];//只提交第一个附件
+        handleUpload(file);
+    })
 });

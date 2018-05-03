@@ -65,10 +65,16 @@
                                         <span class="star">*</span>
                                     </p>
                                     <select class="form-input form-select" id="education" name="education" >
-                                        <option checked>请选择</option>
-                                        <option>硕本</option>
-                                        <option>本科</option>
-                                        <option>大专</option>
+                                        <option  value='' checked>请选择</option>
+                                        <option value='1'>小学</option>
+                                        <option value='2'>初中</option>
+                                        <option value='3'>中专</option>
+                                        <option value='4'>高中</option>
+                                        <option value='5'>大专</option>
+                                        <option value='6'>本科</option>
+                                        <option value='7'>硕士</option>
+                                        <option value='8'>博士</option>
+                                        <option value='9'>博士后</option>
                                     </select>
                 
                 
@@ -107,8 +113,8 @@
                                     <p class="title">8、上传附件
                                         <span class="star">*</span>
                                     </p>
-                                    <div class="upload-file">
-                                        <div class="upload-component">
+                                    <div  class="upload-file">
+                                        <div id="startUpload"  class="upload-component">
                                             
                                             <img src='./img/upload.png' />
                                             <span>
@@ -116,9 +122,13 @@
                                             </span>
                                             
                                         </div>
-                                        <input class="form-upload-input" type="file" placeholder="请输入" />
-                
                                         <div class="remind">不超过10M，支持扩展名：pdf</div>
+                                        <div class="select-files">
+                                            <span>11.pdf</span>
+                                        </div>
+                                        <input class="form-upload-input" id="startUploadInput" type="file" placeholder="请输入" />
+                
+                                        
                                     </div>
                 
                 
