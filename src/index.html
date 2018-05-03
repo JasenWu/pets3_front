@@ -9,174 +9,172 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
- 
+
 </head>
 
 <body>
     <!-- 表单页面 -->
     <div id="form-page">
         <div class="form-main">
-                <div class="items-wrap">
-                        
-                        <div class="logo-wrap">
-                                <img src="./img/logo.png" />
-                            </div>
-                            <h5 class="form-title">
-                                请填写以下资料供初审
-                            </h5>
-                            <section class="blue-ling-wrap">
-                                <img src="./img/blue-ling.png" />
-                            </section>
-                            <form id="form" action="">
-                
-                                <div class="form-item">
-                                    <p class="title">1、姓名
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <input class="form-input" type="text" id="name" name="name" placeholder="请输入" minlength="2" required />
-                
-                                </div>
-                                <div class="form-item">
-                                    <p class="title">2、E-mail
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <input class="form-input" type="text" id="email" name="email" placeholder="请输入"  type="email" required />
-                
-                                </div>
-                                <div class="form-item">
-                                    <p class="title">3、手机
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <input class="form-input" type="text" id="phone" name="phone" placeholder="请输入"  type="phoneUS" required />
-                
-                                </div>
-                                <div class="form-item">
-                                    <p class="title">4、微信
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <input class="form-input" type="text" id="weixin" name="weixin" placeholder="请输入" required />
-                
-                                </div>
-                                <div class="form-item">
-                                    <p class="title">5、您的最高学历
-                                        <span class="star">*</span>
-                                    </p>
-                                    <select class="form-input form-select" id="education" name="education" >
-                                        <option  value='' checked>请选择</option>
-                                        <option value='1'>小学</option>
-                                        <option value='2'>初中</option>
-                                        <option value='3'>中专</option>
-                                        <option value='4'>高中</option>
-                                        <option value='5'>大专</option>
-                                        <option value='6'>本科</option>
-                                        <option value='7'>硕士</option>
-                                        <option value='8'>博士</option>
-                                        <option value='9'>博士后</option>
-                                    </select>
-                
-                
-                                </div>
-                                <div class="form-item">
-                                    <p class="title">6、您的毕业院校
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <input  class="form-input" id="school" name="school" type="text" placeholder="请输入" />
-                
-                                </div>
-                                <div class="form-item" >
-                                    <p class="title">7、请问你是否有过创业经历
-                                        <span class="star">*</span>
-                                    </p>
-                
-                                    <ul class="radio-group">
-                                        <li>
-                                            <input type="radio" checked value="1" name="businessExperienceFlag" />
-                                            <label>没有，这是第一次创业</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="2" name="businessExperienceFlag" />
-                                            <label>曾经创业过一次</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="3" name="businessExperienceFlag" />
-                                            <label>创业过2次及以上</label>
-                                        </li>
-                                    </ul>
-                
-                                </div>
-                
-                                <div class="form-item">
-                                    <p class="title">8、上传附件
-                                        <span class="star">*</span>
-                                    </p>
-                                    <div  class="upload-file">
-                                        <div id="startUpload"  class="upload-component">
-                                            
-                                            <img src='./img/upload.png' />
-                                            <span>
-                                                上传文件
-                                            </span>
-                                            
-                                        </div>
-                                        <div class="remind">不超过10M，支持扩展名：pdf</div>
-                                        <div class="select-files">
-                                            <span id="selectedFile"></span>
-                                        </div>
-                                        <input class="form-upload-input" id="startUploadInput" type="file" placeholder="请输入" />
-                
-                                        
-                                    </div>
-                
-                
-                
-                                </div>
-                                <p class="intro">上传一份简历，简单介绍一下自己、团队、或者商业想法等</p>
-                
-                                
+            <div class="items-wrap">
+
+                <div class="logo-wrap">
+                    <img src="./img/logo.png" />
                 </div>
-                <section class="submit-area">
-                    <input type="submit" value="提交" class="submit-form">
+                <h5 class="form-title">
+                    请填写以下资料供初审
+                </h5>
+                <section class="blue-ling-wrap">
+                    <img src="./img/blue-ling.png" />
                 </section>
+                <form id="form" method="get" action="">
+                   
+                        <div class="form-item">
+                            <p class="title">1、姓名
+                                <span class="star">*</span>
+                            </p>
+
+                            <input class="form-input" type="text" id="name" name="name" placeholder="请输入" minlength="2" required />
+
+                        </div>
+                        <div class="form-item">
+                            <p class="title">2、E-mail
+                                <span class="star">*</span>
+                            </p>
+
+                            <input class="form-input"   id="email" name="email" placeholder="请输入" type="email"  required />
+                      
+                        </div>
+                        <div class="form-item">
+                            <p class="title">3、手机
+                                <span class="star">*</span>
+                            </p>
+
+                            <input class="form-input"   id="phone" name="phone" placeholder="请输入"  type="text" minlength isMobile required />
+
+                        </div>
+                        <div class="form-item">
+                            <p class="title">4、微信
+                                <span class="star">*</span>
+                            </p>
+
+                            <input class="form-input" type="text" id="weixin" name="weixin" placeholder="请输入" required />
+
+                        </div>
+                        <div class="form-item">
+                            <p class="title">5、您的最高学历
+
+                            </p>
+                            <select class="form-input form-select" id="education" name="education">
+                                <option value='' checked>请选择</option>
+                                <option value='1'>小学</option>
+                                <option value='2'>初中</option>
+                                <option value='3'>中专</option>
+                                <option value='4'>高中</option>
+                                <option value='5'>大专</option>
+                                <option value='6'>本科</option>
+                                <option value='7'>硕士</option>
+                                <option value='8'>博士</option>
+                                <option value='9'>博士后</option>
+                            </select>
+
+
+                        </div>
+                        <div class="form-item">
+                            <p class="title">6、您的毕业院校
+
+                            </p>
+
+                            <input class="form-input" id="school" name="school" type="text" placeholder="请输入" />
+
+                        </div>
+                        <div class="form-item">
+                            <p class="title">7、请问你是否有过创业经历
+
+                            </p>
+
+                            <ul class="radio-group">
+                                <li>
+                                    <input type="radio" checked value="1" name="businessExperienceFlag" />
+                                    <label>没有，这是第一次创业</label>
+                                </li>
+                                <li>
+                                    <input type="radio" value="2" name="businessExperienceFlag" />
+                                    <label>曾经创业过一次</label>
+                                </li>
+                                <li>
+                                    <input type="radio" value="3" name="businessExperienceFlag" />
+                                    <label>创业过2次及以上</label>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="form-item">
+                            <p class="title">8、上传附件
+                                <span class="star">*</span>
+                            </p>
+                            <div class="upload-file">
+                                <div id="startUpload" class="upload-component">
+
+                                    <img src='./img/upload.png' />
+                                    <span>
+                                        上传文件
+                                    </span>
+
+                                </div>
+                                <div class="remind">不超过10M，支持扩展名：pdf</div>
+                                <div class="select-files">
+                                    <span id="selectedFile"></span>
+                                </div>
+                                <input class="form-upload-input" id="startUploadInput" type="file" placeholder="请输入" />
+
+
+                            </div>
 
 
 
-            </form>
+                        </div>
+                        <p class="intro">上传一份简历，简单介绍一下自己、团队、或者商业想法等</p>
+ 
+                        <section class="submit-area">
+                            <input type="submit" value="提交" class="submit-form">
+                        </section>
+
+                  
+ 
+                </form>
+
+            </div>
 
         </div>
 
-    </div>
+        <!-- 成功页面 -->
+        <div id="success-page">
 
-    <!-- 成功页面 -->
-    <div id="success-page">
-
-        <div class="content-main">
+            <div class="content-main">
                 <img src='./img/success.png' />
                 <h3 class="success-text">提交成功</h3>
                 <p>合适的申请，我们将在2个工作日与您联系</p>
                 <img class="big-img" src='./img/big-img.png' />
-        </div>
- 
-    </div>
+            </div>
 
-    <!-- 弹窗 -->
-    <div class="modal-bg"></div>
-    <div class="modal-main" id="modal">
-        <div class="modal-content">
-            <div class="content">
+        </div>
+
+        <!-- 弹窗 -->
+        <div class="modal-bg"></div>
+        <div class="modal-main" id="modal">
+            <div class="modal-content">
+                <div class="content">
                     <img id="modalIcon" src='' />
                     <span id="modalMsg">
-                            
+
                     </span>
+                </div>
+
+
             </div>
-                
-                
         </div>
-    </div>
 
 </body>
 

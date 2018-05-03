@@ -1,8 +1,9 @@
-//Post请求
+const $ = window.$
+// Post请求
 export const Post = function (param) {
-  let { url, params, successBack, errorBack } = param;
+  let { url, params, successBack, errorBack } = param
   $.ajax({
-    type: "POST",
+    type: 'POST',
     url: url,
     crossDomain: true,
     xhrFields: {
@@ -10,13 +11,12 @@ export const Post = function (param) {
     },
     data: params,
     success: function (res) {
-      successBack(res);
+      successBack(res)
     },
     error: function (err) {
-      if(!!errorBack){
-        errorBack(err);
+      if (errorBack) {
+        errorBack(err)
       }
-     
     }
-  });
+  })
 }
