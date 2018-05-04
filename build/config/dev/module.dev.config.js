@@ -18,16 +18,22 @@ module.exports = {
 
     }, {
         test: /\.css$/,
+        
         use: [
-
             "style-loader",
+            "postcss-loader",
+           
             "css-loader",
         ]
     }, {
         test: /\.less$/,
+       
         use: [
+           
             "style-loader",
+            
             "css-loader",
+            'postcss-loader' ,
             "less-loader",
         ]
     }, {

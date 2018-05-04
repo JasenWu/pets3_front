@@ -205,7 +205,9 @@ function browserSupport () {
 
 // 页面入口
 $(document).ready(function () {
-  console.log('getBrowserInfo', getBrowserInfo())
+ 
+  //console.log('getBrowserInfo', getBrowserInfo())
+ 
   let support = browserSupport()// 浏览器支持
   if (support === false) { // 不支持直接返回
     return

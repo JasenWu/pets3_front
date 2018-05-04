@@ -1,4 +1,5 @@
  
+
 let config = {
     mode: 'production',
     
@@ -17,6 +18,5 @@ let config = {
   
     //postcss: require('./config/vendor/postcss.config.js'),
   };
- 
 
 module.exports = config;
