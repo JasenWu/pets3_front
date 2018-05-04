@@ -161,8 +161,8 @@ $.validator.setDefaults({
       education: $('#education').val(),
       educationSchool: $('#school').val(),
       description: '',
-      fileId: attachment.id// file id
-
+      fileId: attachment.id,// file id
+      recommender:$('#referrer').val(),//推荐人
     }
     ajaxSubmit(params, function (res) {
       let { retCode, retMsg } = res
