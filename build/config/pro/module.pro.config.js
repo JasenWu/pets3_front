@@ -8,7 +8,8 @@ module.exports = {
             loader: "babel-loader",
 
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
+     
 
     }, {
         test: /\.css$/,
@@ -24,16 +25,16 @@ module.exports = {
                 "css-loader",
                 "less-loader",
             ]
-        }) 
-    },{
+        })
+    }, {
         test: /\.(png|jpeg|jpg|gif)$/,
         use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8000
+            {
+                loader: 'url-loader',
+                options: {
+                    limit: 8000
+                }
             }
-          }
         ]
-      },],
+    },],
 }

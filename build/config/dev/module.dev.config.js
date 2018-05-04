@@ -6,19 +6,20 @@ module.exports = {
         test: /\.(js | vue |jsx)$/,
         loader: "eslint-loader",
         exclude: /node_modules/,
-        enforce:'pre'
-    },{
+        enforce: 'pre'
+    }, {
         test: /(\.js)$/,
         use: {
             loader: "babel-loader",
 
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
+      
 
     }, {
         test: /\.css$/,
         use: [
-            
+
             "style-loader",
             "css-loader",
         ]
@@ -28,16 +29,16 @@ module.exports = {
             "style-loader",
             "css-loader",
             "less-loader",
-        ] 
-    },{
+        ]
+    }, {
         test: /\.(png|jpeg|jpg|gif)$/,
         use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192
+            {
+                loader: 'url-loader',
+                options: {
+                    limit: 8192
+                }
             }
-          }
         ]
-      },],
+    },],
 }
