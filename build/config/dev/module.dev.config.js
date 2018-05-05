@@ -3,22 +3,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     rules: [{
-        test: /\.(js | vue |jsx)$/,
-        loader: "eslint-loader",
-        exclude: /node_modules/,
-        enforce: 'pre'
+      enforce: "pre",
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: "eslint-loader",
     }, {
         test: /(\.js)$/,
-        use: {
-            loader: "babel-loader",
-
-        },
-        exclude: /node_modules/
-      
-
+        exclude: /node_modules/,
+        loader: "babel-loader",
     }, {
         test: /\.css$/,
-        
         use: [
             "style-loader",
             "postcss-loader",
