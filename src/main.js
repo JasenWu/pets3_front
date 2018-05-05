@@ -1,7 +1,7 @@
 
 import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
 import v from './index.vue'
-let Vue = window.Vue;
+let Vue = window.Vue
 new Vue({
 
   data: {
