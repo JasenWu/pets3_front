@@ -2,6 +2,7 @@
 import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
 import v from './index.vue'
 let Vue = window.Vue
+let VueRouter = window.VueRouter
 const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
 const routes = [
@@ -31,9 +32,6 @@ new Vue({
     <router-view></router-view>
   </div>`
 }).$mount('#vue')
-
-
-
 
 require('./style/index.less')
 const $ = window.$
