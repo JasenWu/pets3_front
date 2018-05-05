@@ -11,13 +11,19 @@ module.exports = {
         exclude: /node_modules/
      
 
-    }, {
+    },  {
+      test: /(\.vue)$/,
+      exclude: /node_modules/,
+      use:[{
+        loader: 'vue-loader'
+      }
+    ]
+    },{
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-               
-                'postcss-loader' ,
+                'postcss-loader',
                 "css-loader",
             ],
         })
@@ -26,7 +32,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                'postcss-loader' ,
+                'postcss-loader',
                 "less-loader",
             ]
         })

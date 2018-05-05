@@ -1,5 +1,21 @@
 
 import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
+import v from './index.vue'
+let Vue = window.Vue;
+new Vue({
+
+  data: {
+    message: 'Hello Vue!'
+  },
+  components: {
+    v
+  },
+  template: `<div>
+  <v></v>
+  3333 <input type='text' v-focus  />
+  </div>`
+}).$mount('#vue')
+
 require('./style/index.less')
 const $ = window.$
 const formPage = $('#form-page')// 表单提交页面
