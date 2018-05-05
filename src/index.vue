@@ -12,7 +12,7 @@ export default {
 </script> 
 <style scoped lang='less'>
  .test{
-   color:yellow;
+   color:red;
  }
 </style>
 

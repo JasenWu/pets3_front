@@ -2,8 +2,18 @@
 import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
 import v from './index.vue'
 let Vue = window.Vue
-new Vue({
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
 
+const router = new VueRouter({
+  routes // （缩写）相当于 routes: routes
+})
+new Vue({
+  router,
   data: {
     message: 'Hello Vue!'
   },
@@ -11,10 +21,19 @@ new Vue({
     v
   },
   template: `<div>
-  <v></v>
-  3333 <input type='text' v-focus  />
+  <v />
+  <h1>Hello App!</h1>
+  <p>
+  
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+  </p>
+    <router-view></router-view>
   </div>`
 }).$mount('#vue')
+
+
+
 
 require('./style/index.less')
 const $ = window.$
