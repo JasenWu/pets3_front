@@ -236,6 +236,6 @@ $(document).ready(function () {
   initUplodComponent(function () { // 绑定click操作
     console.log('$(this)', $(this))
     let file = $(this)[0].files[0]// 只提交第一个附件
-    handleUpload(file    )
+    handleUpload(file)
   })
 })
