@@ -12,6 +12,7 @@ module.exports = {
     '@static': resolve('static'),
     '@assets': resolve('src/assets'),
     '@models': resolve('src/models'),
+    '@config': resolve('src/config'),
     '@views': resolve('src/views'),
     '@components': resolve('src/views/components'),
   }

@@ -1,11 +1,29 @@
 let VueRouter = window.VueRouter
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-]
+import Form from '@views/commit/form.vue'
+import Success from '@views/commit/success.vue'
+import { NAME, ROUTER_BASE_PATH } from '@config/index'
 
-export const router = new VueRouter({
-  routes // （缩写）相当于 routes: routes
+
+const myRouter = new VueRouter({
+  base: ROUTER_BASE_PATH,
+  path: '/',
+  redirect: { name: 'commit/form' } // 跳转至首页
 })
+
+myRouter.addRoutes(require('@views/commit/router').default);
+
+myRouter.beforeEach((to, from, next)=>{
+	next();
+});
+
+myRouter.afterEach((route) => {
+  let title = route.meta.title || NAME;
+  document.title = NAME;
+});
+
+
+export default myRouter;
+
+
+
+
