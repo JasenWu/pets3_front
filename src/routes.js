@@ -4,8 +4,13 @@ let VueRouter = window.VueRouter
 
 const myRouter = new VueRouter({
   base: ROUTER_BASE_PATH,
-  path: '/',
-  redirect: { name: 'commit/form' } // 跳转至首页
+ 
+  routes: [
+		{
+			path: '/',
+			redirect: {name:'commit/form'} // 跳转至首页
+		},
+	]
 })
 
 myRouter.addRoutes(require('@views/commit/router').default)
