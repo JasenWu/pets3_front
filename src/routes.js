@@ -15,7 +15,7 @@ const myRouter = new VueRouter({
 
 myRouter.addRoutes(require('@views/commit/router').default)
 
-myRouter.addRoutes(require('./views/error/router').default); //此路由放在最后
+myRouter.addRoutes(require('./views/error/router').default) // 此路由放在最后
 
 myRouter.beforeEach((to, from, next) => {
   next()
