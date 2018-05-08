@@ -1,5 +1,38 @@
 
 import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
+import v from './index.vue'
+let Vue = window.Vue
+let VueRouter = window.VueRouter
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+  routes // （缩写）相当于 routes: routes
+})
+new Vue({
+  router,
+  data: {
+    message: 'Hello Vue!'
+  },
+  components: {
+    v
+  },
+  template: `<div>
+  <v />
+  <h1>Hello App!</h1>
+  <p>
+  
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+  </p>
+    <router-view></router-view>
+  </div>`
+}).$mount('#vue')
+
 require('./style/index.less')
 const $ = window.$
 const formPage = $('#form-page')// 表单提交页面
