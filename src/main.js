@@ -1,39 +1,31 @@
 
-import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from '@models/model'
-import v from './views/index/index.vue'
-let Vue = window.Vue
-let VueRouter = window.VueRouter
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-]
+import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from '@models/model'// 引入数据模型
+//import {router} from '@/routes'
+// 样式文件
+//import v from '@views/index/index.vue'// 引入路由
+require('@assets/css/index.less')
+// let Vue = window.Vue
 
-const router = new VueRouter({
-  routes // （缩写）相当于 routes: routes
-})
-new Vue({
-  router,
-  data: {
-    message: 'Hello Vue!'
-  },
-  components: {
-    v
-  },
-  template: `<div>
-  <v />
-  <h1>Hello App!</h1>
-  <p>
-  
-    <router-link to="/foo">Go to Foo</router-link>
-    <router-link to="/bar">Go to Bar</router-link>
-  </p>
-    <router-view></router-view>
-  </div>`
-}).$mount('#vue')
+// new Vue({
+//   router,
+//   data: {
+//     message: 'Hello Vue!'
+//   },
+//   components: {
+//     v
+//   },
+//   template: `<div>
+//   <v />
+//   <h1>Hello App!</h1>
+//   <p>
 
-require('./assets/css/index.less')
+//     <router-link to="/foo">Go to Foo</router-link>
+//     <router-link to="/bar">Go to Bar</router-link>
+//   </p>
+//     <router-view></router-view>
+//   </div>`
+// }).$mount('#vue')
+
 const $ = window.$
 const formPage = $('#form-page')// 表单提交页面
 const successPage = $('#success-page')// 文件上传成功页面

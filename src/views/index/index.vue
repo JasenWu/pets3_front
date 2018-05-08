@@ -13,6 +13,9 @@ export default {
 <style scoped lang='less'>
  .test{
    color:red;
+ 
+ 
+ 
  }
 </style>
 
