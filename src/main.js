@@ -1,6 +1,6 @@
 
-import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from './model'
-import v from './index.vue'
+import { uploadFile, ajaxSubmit, modalData, fileMaxSize, getBrowserInfo } from '@models/model'
+import v from './views/index/index.vue'
 let Vue = window.Vue
 let VueRouter = window.VueRouter
 const Foo = { template: '<div>foo</div>' }
@@ -33,7 +33,7 @@ new Vue({
   </div>`
 }).$mount('#vue')
 
-require('./style/index.less')
+require('./assets/css/index.less')
 const $ = window.$
 const formPage = $('#form-page')// 表单提交页面
 const successPage = $('#success-page')// 文件上传成功页面

@@ -20,7 +20,7 @@ module.exports = [
     }),
      
     new ExtractTextPlugin({filename: '[name].css',allChunks: true}),
-    new CopyWebpackPlugin([{ from: 'src/img', to: 'img' }]),
+    new CopyWebpackPlugin([{ from: 'src/assets/img', to: 'assets/img' }]),
     new VueLoaderPlugin(),
    
     

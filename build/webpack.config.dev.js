@@ -6,10 +6,12 @@ let config = {
   entry: require('./config/base/entry.config.js'),
 
   output: require('./config/base/output.config.js'),
+  
+  resolve: require('./config/base/resolve.config.js'),
 
   module: require('./config/dev/module.dev.config.js'),
 
-  //resolve: require('./config/resolve.config.js'),
+  
 
   plugins: require('./config/dev/plugins.dev.config.js'),
  

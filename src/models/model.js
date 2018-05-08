@@ -1,5 +1,5 @@
 // 服务器地址
-import { Post } from './js/ajax'
+import { Post } from '../assets/js/ajax'
 
 // export let host = 'http://192.168.87.201:8089/'// 服务器地址
 export let host = 'http://test.oa.innotechx.com/api/'// 服务器地址
@@ -11,23 +11,23 @@ export const fileMaxSize = 1024 * 1024 * 10// 10M
 
 export let modalData = {
   success: {
-    icon: './img/success-icon.png',
+    icon: './assets/img/success-icon.png',
     msg: '上传附件成功'
   },
   failure: {
-    icon: './img/error-icon.png',
+    icon: './assets/img/error-icon.png',
     msg: '上传附件失败'
   },
   notPdf: {
-    icon: './img/error-icon.png',
+    icon: './assets/img/error-icon.png',
     msg: '只支持pdf类型的文件上传'
   },
   toBig: {
-    icon: './img/error-icon.png',
+    icon: './assets/img/error-icon.png',
     msg: '文件大小超过了10M'
   },
   commonError: {
-    icon: './img/error-icon.png',
+    icon: './assets/img/error-icon.png',
     msg: '错误'
   }
 

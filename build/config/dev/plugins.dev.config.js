@@ -7,6 +7,6 @@ module.exports = [new ErrorOverlayPlugin(),new HtmlWebpackPlugin({
     filename: 'index.html',
     template:'./src/index.html',
     inject: true
-}),new CopyWebpackPlugin([{ from: 'src/img', to: 'img' }]),
+}),new CopyWebpackPlugin([{ from: 'src/assets/img', to: 'assets/img' }]),
 new VueLoaderPlugin()
 ];
