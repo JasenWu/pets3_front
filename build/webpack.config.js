@@ -19,4 +19,7 @@ let config = {
     //postcss: require('./config/vendor/postcss.config.js'),
   };
 
-module.exports = config;
+  module.exports = env => {
+    config.output.publicPath = './'
+    return  config;
+  }
