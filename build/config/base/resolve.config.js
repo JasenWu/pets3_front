@@ -9,7 +9,7 @@ module.exports = {
   extensions: ['.js', '.vue', '.json', '.less'],
   alias: {
     '@': resolve('src'),
-    '@static': resolve('static'),
+ 
     '@assets': resolve('src/assets'),
     '@models': resolve('src/models'),
     '@config': resolve('src/config'),
