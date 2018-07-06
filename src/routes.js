@@ -8,12 +8,13 @@ const myRouter = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: {name: 'commit/form'} // 跳转至首页
+      redirect: {name: 'index/index'} // 跳转至首页
     }
   ]
 })
 
-myRouter.addRoutes(require('@views/commit/router').default)
+ 
+myRouter.addRoutes(require('@views/index/router').default)
 
 myRouter.addRoutes(require('./views/error/router').default) // 此路由放在最后
 

@@ -1,20 +1,18 @@
-const moduleId = 'commit'
+const moduleId = 'index'
 let modules = {}
 
 modules['layout'] = (resolve) => {
   require.ensure([], () => { resolve(require('@views/_layout/layout')) }, `commit`)
 }
 
-modules['form'] = (resolve) => {
-  require.ensure([], () => { resolve(require('./form')) }, `commit`)
+modules['index'] = (resolve) => {
+  require.ensure([], () => { resolve(require('./index')) }, `index`)
 }
-modules['success'] = (resolve) => {
-  require.ensure([], () => { resolve(require('./success')) }, `commit`)
-}
+ 
 
 let routerArr = {
-  'form': {title: '提交表单'},
-  'success': {title: '成功提交'}
+  'index': {title: '列表页'},
+ 
 }
 
 let routes = []
