@@ -6,9 +6,9 @@
       <el-col
         :offset="6"
         :span="12">
-         {{unit}}
+        {{ unit }}
 
-         {{chapter}}
+        {{ chapter }}
 
       </el-col>
 
@@ -25,8 +25,8 @@ export default {
     return {
       activeNames: ['1'],
       unitList: [],
-      unit:this.$route.query.unit || 1,
-      chapter:this.$route.query.chapter || 1,
+      unit: this.$route.query.unit || 1,
+      chapter: this.$route.query.chapter || 1
     }
   },
   mounted () {
