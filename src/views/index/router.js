@@ -10,7 +10,7 @@ modules['index'] = (resolve) => {
 }
 
 let routerArr = {
-  'index': {title: '列表页'}
+  'index': {title: 'Unit List'}
 
 }
 
