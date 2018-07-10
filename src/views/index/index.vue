@@ -3,12 +3,22 @@
   <div class="layout_index_index">
 
     <el-row :gutter="20">
-      <el-col :offset="6" :span="12">
-        <el-collapse v-model="activeNames" @change="handleChange">
-          <el-collapse-item v-for="(item,index) in unitList" :key="index" :title="item.title" :name="index">
+      <el-col
+        :offset="6"
+        :span="12">
+        <el-collapse
+          v-model="activeNames"
+          @change="handleChange">
+          <el-collapse-item
+            v-for="(item,index) in unitList"
+            :key="index"
+            :title="item.title"
+            :name="index">
             <ul class="layout_chapter_list">
-              <li v-for="(it,i) in item.children" :key="i">
-                {{it.title}}
+              <li
+                v-for="(it,i) in item.children"
+                :key="i">
+                {{ it.title }}
               </li>
             </ul>
 
@@ -24,80 +34,80 @@
 
 </template>
 <script>
-import Axios from "axios";
+import Axios from 'axios'
 
 export default {
-  data() {
+  data () {
     return {
-      activeNames: ["1"],
+      activeNames: ['1'],
       unitList: []
-    };
+    }
   },
-  mounted() {
-    this.getData();
+  mounted () {
+    this.getData()
   },
   methods: {
-    getData() {
+    getData () {
       Axios.get(
-        "http://localhost/pets3_data/api/RestController.php?req=unit"
+        'http://localhost/pets3_data/api/RestController.php?req=unit'
       ).then(({ data }) => {
         let children = {
-          "1": {
-            title: "Dialog/Monologue",
+          '1': {
+            title: 'Dialog/Monologue',
             startTime: 0,
             endTime: 189,
             audioName: true
           },
-          "2": {
-            title: "Dialog/Monologue",
+          '2': {
+            title: 'Dialog/Monologue',
             startTime: 190,
             endTime: 321,
             audioName: true
           },
-          "3": {
-            title: "Dialog/Monologue",
+          '3': {
+            title: 'Dialog/Monologue',
             startTime: 322,
             endTime: 469,
             audioName: true
           },
-          "4": {
-            title: "Dialog/Monologue",
+          '4': {
+            title: 'Dialog/Monologue',
             startTime: 470,
             endTime: 553,
             audioName: true
           },
-          "5": {
-            title: "Passage",
+          '5': {
+            title: 'Passage',
             startTime: 554,
             endTime: 733,
             audioName: true
           },
-          "6": {
-            title: "Excise A",
+          '6': {
+            title: 'Excise A',
             startTime: 554,
             endTime: 733,
             audioName: true
           },
-          "7": {
-            title: "Excise B",
+          '7': {
+            title: 'Excise B',
             startTime: 554,
             endTime: 733,
             audioName: true
           }
-        };
+        }
         data.forEach((d, i) => {
-          d.title = `Unit${d.order} ${d.title}`;
-          d.children = children;
-        });
-        console.log("data", data);
-        this.unitList = data;
-      });
+          d.title = `Unit${d.order} ${d.title}`
+          d.children = children
+        })
+        console.log('data', data)
+        this.unitList = data
+      })
     },
-    handleChange(val) {
-      console.log(val);
+    handleChange (val) {
+      console.log(val)
     }
   }
-};
+}
 </script>
 <style lang='less'>
 .layout_index_index {
