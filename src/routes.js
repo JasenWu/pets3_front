@@ -16,6 +16,7 @@ const myRouter = new VueRouter({
 })
 
 myRouter.addRoutes(require('@views/index/router').default)
+myRouter.addRoutes(require('@views/detail/router').default)
 
 myRouter.addRoutes(require('./views/error/router').default) // 此路由放在最后
 
