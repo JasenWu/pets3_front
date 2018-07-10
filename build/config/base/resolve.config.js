@@ -4,7 +4,6 @@ function resolve (dir) {
   return path.join(__dirname, '../../../', dir)
 }
 
-console.log('path:',resolve('src/assets'));
 module.exports = {
   extensions: ['.js', '.vue', '.json', '.less'],
   alias: {
@@ -15,5 +14,6 @@ module.exports = {
     '@config': resolve('src/config'),
     '@views': resolve('src/views'),
     '@components': resolve('src/views/components'),
+    'vue': 'vue/dist/vue.js'
   }
 }

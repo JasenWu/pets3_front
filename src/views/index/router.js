@@ -8,11 +8,10 @@ modules['layout'] = (resolve) => {
 modules['index'] = (resolve) => {
   require.ensure([], () => { resolve(require('./index')) }, `index`)
 }
- 
 
 let routerArr = {
-  'index': {title: '列表页'},
- 
+  'index': {title: '列表页'}
+
 }
 
 let routes = []

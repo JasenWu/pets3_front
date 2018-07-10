@@ -1,6 +1,8 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 import { NAME, ROUTER_BASE_PATH } from '@config/index'
-let VueRouter = window.VueRouter
+Vue.use(VueRouter)
 
 const myRouter = new VueRouter({
   base: ROUTER_BASE_PATH,
@@ -13,7 +15,6 @@ const myRouter = new VueRouter({
   ]
 })
 
- 
 myRouter.addRoutes(require('@views/index/router').default)
 
 myRouter.addRoutes(require('./views/error/router').default) // 此路由放在最后
