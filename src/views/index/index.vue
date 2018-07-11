@@ -14,12 +14,14 @@
             :key="index"
             :title="item.title"
             :name="index">
+
+ 
             <ul class="layout_chapter_list">
               <li
                 v-for="(it,i) in item.children"
                 :key="i">
-                <router-link :to="{name:'detail/detail', params:{unit:item.order,chapter:3}}">
-                  {{ it.title }}
+                <router-link :to="{name:'detail/detail', query:{unit:item.order,chapter:3}}">
+                  {{i}}、{{ it.title }}
                 </router-link>
 
               </li>

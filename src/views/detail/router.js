@@ -2,7 +2,7 @@ const moduleId = 'detail'
 let modules = {}
 
 modules['layout'] = (resolve) => {
-  require.ensure([], () => { resolve(require('@views/_layout/layout')) }, `commit`)
+  require.ensure([], () => { resolve(require('@views/_layout/layout')) }, `detail`)
 }
 
 modules['detail'] = (resolve) => {
