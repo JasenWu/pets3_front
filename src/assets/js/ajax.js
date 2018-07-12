@@ -3,7 +3,7 @@
 import axios from 'axios'
 import jsonp from 'jsonp'
 import {
-   APP_CONFIG
+  APP_CONFIG
 } from '@config/index'
 import {
   Message
