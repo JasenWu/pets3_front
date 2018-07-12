@@ -62,7 +62,7 @@
                 { required: true, message: 'please write role name', trigger: ['blur', 'change'] },
               ]"
               label="name">
-              <el-input v-model="item.name"/>
+              <el-input v-model="item.name" />
             </el-form-item>
             <el-row :gutter="0">
               <el-col :span="12">
@@ -77,10 +77,10 @@
                     placeholder="please choose gender">
                     <el-option
                       label="males"
-                      value="1"/>
+                      value="1" />
                     <el-option
                       label="females"
-                      value="0"/>
+                      value="0" />
                   </el-select>
                 </el-form-item>
               </el-col>
@@ -96,13 +96,13 @@
                     placeholder="please choose role type">
                     <el-option
                       label="aside"
-                      value="0"/>
+                      value="0" />
                     <el-option
                       label="main role"
-                      value="1"/>
+                      value="1" />
                     <el-option
                       label="support role"
-                      value="2"/>
+                      value="2" />
                   </el-select>
                 </el-form-item>
               </el-col>
@@ -117,7 +117,7 @@
               label="remark">
               <el-input
                 v-model="item.remark"
-                type="textarea"/>
+                type="textarea" />
             </el-form-item>
           </section>
 
@@ -140,7 +140,8 @@
 
 </template>
 <script>
-import Axios from 'axios'
+
+import { insertContent } from '@models/detail'
 
 export default {
   data () {
@@ -163,8 +164,8 @@ export default {
       },
       dialog: {
         updateData: {
-          unit: this.$route.query.unit || 1,
-          chapter: this.$route.query.chapter || 1,
+          unit_id: this.$route.query.unit || 1,
+          chapter_id: this.$route.query.chapter || 1,
           roles: [
             {
               name: '',
@@ -219,75 +220,25 @@ export default {
           this.$message.error('请检查表单')
           return false
         }
-
-        // let params = this.dialog.updateData;
         let params = {
           req: 'roles',
-          type: 'insert',
-          params: {
-            unit_id: this.unit,
-            chapter_id: this.chapter,
-            role_id: 3,
-            name: this.dialog.updateData.roles[0].name,
-            sex: this.dialog.updateData.roles[0].sex,
-            type: this.dialog.updateData.roles[0].type,
-            remark: this.dialog.updateData.roles[0].remark
-          }
+          type: 'insert'
         }
-
-        params.params = JSON.stringify(params.params)
+        params.params = this.dialog.updateData
 
         this.load.update = true
-        let url = 'http://localhost/pets3_data/api/RestController.php'
 
-        const deepObjectToPostParams = (data, keyPre = '', opt = {}) => {
-          let q = ''
-          for (let i in data) {
-            let pref = keyPre ? keyPre + '[' + i + ']' : i
-
-            if (
-              opt.url &&
-              opt.url.indexOf('index/upload') === 0 &&
-              i === 'file'
-            ) {
-              q += pref + '=' + data[i] + '&'
-              continue
-            }
-
-            if (typeof data[i] === 'object') {
-              if (
-                Array.isArray(data[i]) &&
-                data[i].length === 0 &&
-                opt.allowEmptyArray
-              ) {
-                q += pref + `=&`
-              } else {
-                q += deepObjectToPostParams(data[i], pref, opt)
+        this.$nextTick(() => {
+          insertContent(params)
+            .then(({ retCode, retData }) => {
+              if (retCode !== 0) {
+                return false
               }
-            } else {
-              q += pref + '=' + encodeURIComponent(data[i]) + '&'
-            }
-          }
-          return q
-        }
-
-        Axios({
-          method: 'post',
-          url: url,
-          data: params,
-          // withCredentials: true,
-          responseType: 'json',
-          timeout: 60000,
-          transformRequest: [
-            function (data, headers) {
-              let q = deepObjectToPostParams(data, '', {
-                url: url
-              })
-              q = q.substr(0, q.length - 1)
-              return q
-            }
-          ]
-        }).then(({ data, status, message }) => {})
+            })
+            .catch(err => {
+              console.log('err',err);
+            })
+        })
       })
     },
     resetForm (formName) {
