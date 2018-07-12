@@ -119,12 +119,11 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
       ...ajaxData
     })
       .then(({
-        data,
-      
+        data
+
         // message
       }) => {
         return resolve(data)
-        
       })
       .catch((err) => {
         // Message({

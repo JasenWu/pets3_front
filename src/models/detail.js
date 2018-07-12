@@ -15,5 +15,3 @@ export const updateRoles = (params = {}) => {
 export const getRoles = (params = {}) => {
   return Get('pets3_data/api/RestController.php', params)
 }
-
-
