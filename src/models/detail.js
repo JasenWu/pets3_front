@@ -1,9 +1,13 @@
 // 服务器地址
-import { Post } from '../assets/js/ajax'
+import {
+  Get,
+  Post
+} from '../assets/js/ajax'
 
-/**
- * 匹配公司标题
- */
-export const insertContent = (params = {}) => {
+export const insertRoles = (params = {}) => {
   return Post('pets3_data/api/RestController.php', params)
+}
+
+export const getRoles = (params = {}) => {
+  return Get('pets3_data/api/RestController.php', params)
 }

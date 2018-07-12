@@ -4,6 +4,7 @@
         "import/first": "off",
         "no-new": "off",
         "eqeqeq": "off",
-        "prefer-promise-reject-errors": "off"
+        "prefer-promise-reject-errors": "off",
+        "object-curly-even-spacing":"off"
     }
 }

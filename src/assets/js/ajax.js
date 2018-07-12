@@ -3,31 +3,9 @@
 import axios from 'axios'
 import jsonp from 'jsonp'
 
-import {
-  Message
-} from 'element-ui'
-
-const doTip = (ret, opt = {}) => {
-  // let {
-  //   retCode,
-  //   retMsg
-  // } = ret
-
-  // if (retCode !== API_CODE.SUCCESS) {
-  //   if (!opt.ignoreTip) {
-  //     // Message({
-  //     //   message: (retMsg || '发生了一些错误') + ` [${retCode}]`,
-  //     //   type: 'error'
-  //     // })
-  //   }
-  // }
-  // if (retCode === API_CODE.USER_NOT_LOGIN) {
-  //   // 跳转到登录
-  //   myRouter.push({
-  //     name: 'login/login'
-  //   })
-  // }
-}
+// import {
+//   Message
+// } from 'element-ui'
 
 /**
  * 获取真实接口地址
@@ -96,8 +74,8 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
     })
       .then(({
         data,
-        status,
-        message
+        status
+        // message
       }) => {
         if (status === 0) {
           // doTip(data, ajaxData)
@@ -135,32 +113,32 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
       method: 'get',
       url: (url),
       params: data,
-      withCredentials: true,
+      // withCredentials: true,
       responseType: 'json',
       timeout: 60000,
       ...ajaxData
     })
       .then(({
         data,
-        status,
-        message
+        code
+        // message
       }) => {
-        if (status === 200) {
-          doTip(data, ajaxData)
+        if (code === 0) {
+          // doTip(data, ajaxData)
           return resolve(data)
         } else {
-          Message({
-            type: 'error',
-            message: (message || '服务器错误') + ' ' + (url)
-          })
+          // Message({
+          //   type: 'error',
+          //   message: (message || '服务器错误') + ' ' + (url)
+          // })
           return reject(status)
         }
       })
       .catch((err) => {
-        Message({
-          type: 'error',
-          message: (err.message || '服务器错误') + ' ' + (url)
-        })
+        // Message({
+        //   type: 'error',
+        //   message: (err.message || '服务器错误') + ' ' + (url)
+        // })
         return reject(err)
       })
   })

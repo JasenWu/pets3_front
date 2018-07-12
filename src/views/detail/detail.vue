@@ -1,7 +1,5 @@
 <template>
-
   <div class="layout_index_index">
-
     <el-row :gutter="20">
       <el-col
         :offset="6"
@@ -140,8 +138,7 @@
 
 </template>
 <script>
-
-import { insertContent } from '@models/detail'
+import { insertRoles, getRoles as getData } from '@models/detail'
 
 export default {
   data () {
@@ -191,9 +188,25 @@ export default {
     }
   },
   mounted () {
-    // this.getData()
+    this.getData()
   },
   methods: {
+    getData () {
+      let params = {
+        req: 'roles',
+        chapter_id: this.$route.query.chapter || 1
+      }
+      getData(params)
+        .then(({ retCode, retData }) => {
+          if (retCode !== 0) {
+            return false
+          }
+          console.log('data', retData)
+        })
+        .catch(err => {
+          console.log('err', err)
+        })
+    },
     edit () {
       this.dialogVisible = true
       this.dialogForward.title = 'edit'
@@ -229,14 +242,14 @@ export default {
         this.load.update = true
 
         this.$nextTick(() => {
-          insertContent(params)
+          insertRoles(params)
             .then(({ retCode, retData }) => {
               if (retCode !== 0) {
                 return false
               }
             })
             .catch(err => {
-              console.log('err',err);
+              console.log('err', err)
             })
         })
       })
