@@ -120,19 +120,11 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
     })
       .then(({
         data,
-        code
+      
         // message
       }) => {
-        if (code === 0) {
-          // doTip(data, ajaxData)
-          return resolve(data)
-        } else {
-          // Message({
-          //   type: 'error',
-          //   message: (message || '服务器错误') + ' ' + (url)
-          // })
-          return reject(status)
-        }
+        return resolve(data)
+        
       })
       .catch((err) => {
         // Message({
